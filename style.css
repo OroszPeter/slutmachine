@@ -1,0 +1,176 @@
+/* Általános beállítások */
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212121;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Bejelentkezés szekció */
+#login-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;  /* Középre igazítás */
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Játék oldal (Alkalmazás megjelenítése) */
+#app {
+  width: 100%;
+  height: 100%;
+  background: #212121;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none; /* Alapértelmezetten rejtve */
+}
+
+/* Pontok és információk */
+#numbers {
+  position: absolute;
+  top: 25px;
+  left: 90%;
+  color: white;
+}
+
+#currentwin,
+#score {
+  text-align: right;
+}
+
+/* Táblázat stílusok */
+table {
+  margin-top: 10px;
+  border: 5px solid white;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid white;
+  width: 100px;
+  text-align: center;
+  color: white;
+}
+
+th {
+  font-weight: bold;
+}
+
+/* Ajtók */
+.doors {
+  display: flex;
+  border: 1px solid white;
+}
+
+.door {
+  background: #fafafa;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+  width: 100px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 1ex;
+  margin: 1ch;
+}
+
+.boxes {
+  transition: transform 1s ease-in-out;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+/* Gombok */
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 0 0.2rem;
+  border: 3px solid rgb(100, 0, 0);
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
+}
+
+button:hover {
+  background-color: rgb(200, 100, 100);
+}
+
+/* Információk */
+.info {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

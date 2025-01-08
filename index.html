@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Játékgép</title>
+</head>
+<body>
+    <div id="login-container">
+        <h2>Bejelentkezés</h2>
+        <form id="login-form" action="#" method="POST">
+            <div class="input-group">
+                <label for="username">Felhasználónév</label>
+                <input type="text" id="username" name="username" placeholder="Írd be a felhasználóneved" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Jelszó</label>
+                <input type="password" id="password" name="password" placeholder="Írd be a jelszavad" required>
+            </div>
+            <button type="submit">Bejelentkezés</button>
+        </form>
+    </div>
+    <div id="app">
+        <div id="numbers">
+            <p>Pontok</p>
+            <div id="score">1000</div>
+            <div id="currentwin">0</div>
+        </div>
+        <div class="doors">
+          <div class="door">
+            <div class="boxes">
+            </div>
+          </div>
+      
+          <div class="door">
+            <div class="boxes">
+            </div>
+          </div>
+      
+          <div class="door">
+            <div class="boxes">
+            </div>
+          </div>
+        </div>
+      
+        <div class="buttons">
+          <button id="spinner"></button>
+        </div>
+        <table class="prizetable">
+            <tr>
+                <th>Szimbólum</th>
+                <th>1x</th>
+                <th>2x</th>
+                <th>3x</th>
+            </tr>
+            <tr>
+                <td>❌</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>7️⃣</td>
+                <td>-</td>
+                <td>-</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>🍓</td>
+                <td>50</td>
+                <td>100</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>🍋</td>
+                <td>-</td>
+                <td>-</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <td>🍉</td>
+                <td>-</td>
+                <td>-</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>🍒</td>
+                <td>-</td>
+                <td>100</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>💵</td>
+                <td>-</td>
+                <td>-</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td>🍊</td>
+                <td>-</td>
+                <td>200</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>🍎</td>
+                <td>50</td>
+                <td>100</td>
+                <td>150</td>
+            </tr>
+            <td colspan="4">1 pörgetés ára: 50</td>
+          </table>
+      </div>
+      
+      <script src="script.js"></script>
+</body>
+</html>
