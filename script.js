@@ -3,10 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentWin = document.getElementById("currentwin");
   let API_Url = "https://slotmachine.tryasp.net/";
   let token = null;
+  let currentUsername = "";
 
   const loginForm = document.getElementById("login-form");
   const loginContainer = document.getElementById("login-container");
   const appContainer = document.getElementById("app");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const usernameError = document.getElementById("username-error");
+  const passwordError = document.getElementById("password-error");
 
   const items = [
     "7️⃣",
@@ -35,11 +40,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const doors = document.querySelectorAll(".door");
   document.querySelector("#spinner").addEventListener("click", spin);
 
+  // Input mező validációs eseménykezelők
+  usernameInput.addEventListener("input", validateUsername);
+  passwordInput.addEventListener("input", validatePassword);
+  
+  // Felhasználónév validáció
+  function validateUsername() {
+    const username = usernameInput.value;
+    
+    if (username.length < 8) {
+      usernameInput.classList.add("input-error");
+      usernameError.classList.add("visible");
+      return false;
+    } else {
+      usernameInput.classList.remove("input-error");
+      usernameError.classList.remove("visible");
+      return true;
+    }
+  }
+  
+  // Jelszó validáció
+  function validatePassword() {
+    const password = passwordInput.value;
+    
+    if (password.length < 8) {
+      passwordInput.classList.add("input-error");
+      passwordError.classList.add("visible");
+      return false;
+    } else {
+      passwordInput.classList.remove("input-error");
+      passwordError.classList.remove("visible");
+      return true;
+    }
+  }
+
   // Bejelentkezési eseménykezelő
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    
+    // Validáljuk a bemeneteket
+    const isUsernameValid = validateUsername();
+    const isPasswordValid = validatePassword();
+    
+    // Ha bármelyik érvénytelen, ne folytassuk
+    if (!isUsernameValid || !isPasswordValid) {
+      return;
+    }
+    
+    const username = usernameInput.value;
+    currentUsername = username;
+    const password = passwordInput.value;
 
     await loginOrRegister(username, password);
 
@@ -120,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const userData = await response.json();
         console.log("Felhasználói adatok:", userData);
         score.textContent = `${userData.userName}: ${userData.score}`;
+        currentUsername = userData.userName;
       } else {
         console.error("Hiba történt a felhasználói adatok lekérésekor.");
       }
@@ -147,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Frissített pontszám:", updatedScore);
 
             // Frissítjük a frontend pontszámot a válasz alapján
-            score.textContent = `Petike: ${updatedScore}`;
+            score.textContent = `${currentUsername}: ${updatedScore}`;
         } else {
             console.error("Hiba történt a pontok frissítésekor:", response.statusText);
         }

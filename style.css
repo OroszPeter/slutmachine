@@ -1,7 +1,7 @@
 /* Általános beállítások */
 html,
 body {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -10,6 +10,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #212121;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
 *,
@@ -20,122 +22,177 @@ body {
 
 /* Bejelentkezés szekció */
 #login-container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  background-color: #2d2d2d;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 0;
-  left: 50%;  /* Középre igazítás */
-  transform: translateX(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 100;
+  color: #fff;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #ff9800;
+  font-size: 28px;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 label {
   display: block;
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 8px;
 }
 
 input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
+  border: 2px solid #555;
+  border-radius: 8px;
   font-size: 16px;
+  background-color: #3d3d3d;
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
 input:focus {
-  border-color: #007bff;
+  border-color: #ff9800;
   outline: none;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
 }
 
 button {
-  padding: 12px;
-  background-color: #007bff;
+  width: 100%;
+  padding: 14px;
+  background-color: #ff9800;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #f57c00;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Hibaüzenet */
+.error-message {
+  color: #ff3d3d;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 0;
+}
+
+.error-message.visible {
+  opacity: 1;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.input-error {
+  border-color: #ff3d3d !important;
 }
 
 /* Játék oldal (Alkalmazás megjelenítése) */
 #app {
   width: 100%;
   height: 100%;
-  background: #212121;
+  background: linear-gradient(135deg, #1a1a1a, #333);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: none; /* Alapértelmezetten rejtve */
+  overflow-x: hidden;
+  padding: 20px;
 }
 
 /* Pontok és információk */
 #numbers {
   position: absolute;
-  top: 25px;
-  left: 90%;
+  top: 80px;
+  right: 25px; /* Jobb oldali igazítás */
   color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 #currentwin,
 #score {
   text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 /* Táblázat stílusok */
 table {
-  margin-top: 10px;
-  border: 5px solid white;
+  margin-top: 20px;
+  border: 3px solid #ff9800;
   border-collapse: collapse;
+  background-color: rgba(0,0,0,0.6);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 td, th {
-  border: 1px solid white;
+  border: 1px solid #ff9800;
   width: 100px;
   text-align: center;
   color: white;
+  padding: 8px;
 }
 
 th {
   font-weight: bold;
+  background-color: rgba(255, 152, 0, 0.3);
 }
 
 /* Ajtók */
 .doors {
   display: flex;
-  border: 1px solid white;
+  border: 3px solid #ff9800;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(0,0,0,0.6);
+  margin: 30px 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .door {
-  background: #fafafa;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
-  width: 100px;
-  height: 150px;
+  background: #3d3d3d;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4) inset;
+  width: 120px;
+  height: 170px;
   overflow: hidden;
-  border-radius: 1ex;
-  margin: 1ch;
+  border-radius: 12px;
+  margin: 10px;
+  border: 3px solid #555;
 }
 
 .boxes {
@@ -146,25 +203,46 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 4rem;
+  height: 170px;
 }
 
 /* Gombok */
-button {
+#spinner {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
-  margin: 0 0.2rem;
-  border: 3px solid rgb(100, 0, 0);
-  background-color: red;
+  margin: 20px 0;
+  border: none;
+  background-color: #ff9800;
   color: white;
-  border-radius: 10px;
-  width: 200px;
-  height: 50px;
+  border-radius: 50px;
+  width: 220px;
+  height: 60px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-  background-color: rgb(200, 100, 100);
+#spinner:before {
+  content: "PÖRGETÉS";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#spinner:hover {
+  background-color: #f57c00;
+}
+
+#spinner:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 /* Információk */
@@ -173,4 +251,6 @@ button:hover {
   bottom: 0;
   width: 100%;
   text-align: center;
+  color: #999;
+  padding: 10px;
 }

@@ -13,18 +13,21 @@
             <div class="input-group">
                 <label for="username">Felhasználónév</label>
                 <input type="text" id="username" name="username" placeholder="Írd be a felhasználóneved" required>
+                <div id="username-error" class="error-message">A felhasználónév legalább 8 karakter hosszú kell legyen!</div>
             </div>
             <div class="input-group">
                 <label for="password">Jelszó</label>
                 <input type="password" id="password" name="password" placeholder="Írd be a jelszavad" required>
+                <div id="password-error" class="error-message">A jelszó legalább 8 karakter hosszú kell legyen!</div>
             </div>
             <button type="submit">Bejelentkezés</button>
         </form>
     </div>
     <div id="app">
         <div id="numbers">
-            <p>Pontok</p>
+            <p>Pontszám:</p>
             <div id="score">1000</div>
+            <p>Nyeremény:</p>
             <div id="currentwin">0</div>
         </div>
         <div class="doors">
@@ -108,7 +111,9 @@
                 <td>100</td>
                 <td>150</td>
             </tr>
-            <td colspan="4">1 pörgetés ára: 50</td>
+            <tr>
+                <td colspan="4">1 pörgetés ára: 50</td>
+            </tr>
           </table>
       </div>
       
